@@ -1,0 +1,36 @@
+<h2>Dodaj Objekat</h2>
+<form name="forma" #form="ngForm" (ngSubmit)="dodaj(form)">
+    <div ng-controller="ExampleController" style="font-size: 20px;">
+       Tip:
+      <select name="singleSelect" [(ngModel)]="tip" class="dugme">
+        <option value="stan">Stan</option>
+        <option value="kuca">Kuca</option>
+      </select><br>
+    </div>
+<table class="tabela">
+    <tr>
+        <td>Adresa:</td>
+        <td>
+            <input type="text" name="adresa" [(ngModel)]="adresa" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Broj prostorija:</td>
+        <td>
+            <input type="text" name="brojProstorija" [(ngModel)]="brojProstorija" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Kvadratura:</td>
+        <td>
+            <input type="kvadratura" name="kvadratura" [(ngModel)]="kvadratura" required>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button type="submit" class="dugme">Sledeci korak</button>
+        </td>
+    </tr>
+</table>
+</form>
+<p style="font-size: 20px;">{{message}}</p><br/>

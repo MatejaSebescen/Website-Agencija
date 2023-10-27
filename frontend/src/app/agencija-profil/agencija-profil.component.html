@@ -1,0 +1,70 @@
+<table class="tabela">
+    <tr>
+        <th>naziv</th>
+        |<td>{{korisnik.naziv}}</td>
+    </tr>
+    <tr>
+        <th>adresa</th>
+        |<td>{{korisnik.grad}}, {{korisnik.ulica}}</td>
+    </tr>
+    <tr>
+        <th>opis</th>
+        |<td>{{korisnik.opis}}</td>
+    </tr>
+    <tr>
+        <th>email</th>
+        |<td>{{korisnik.email}}</td>
+    </tr>
+    <tr>
+        <th>kontakt telefon</th>
+        |<td>{{korisnik.kontaktTelefon}}</td>
+    </tr>
+    <div *ngIf="!updating">
+    <tr><button (click)="updatePress()" class="dugme">Update</button></tr>
+    </div>
+</table>
+<div *ngIf="updating">
+<form name="forma" #form="ngForm" (ngSubmit)="update(form)">
+<table class="tabela">
+    <tr>
+        <td>naziv:</td>
+        <td>
+            <input type="text" name="naziv" [(ngModel)]="naziv">
+        </td>        
+    </tr>
+    <tr>
+        <td>grad:</td>
+        <td>
+            <input type="text" name="grad" [(ngModel)]="grad">
+        </td>        
+    </tr>
+    <tr>
+        <td>ulica:</td>
+        <td>
+            <input type="text" name="ulica" [(ngModel)]="ulica">
+        </td>        
+    </tr>
+    <tr>
+        <td>opis:</td>
+        <td>
+            <input type="textArea" name="opis" [(ngModel)]="opis">
+        </td>        
+    </tr>
+    <tr>
+        <td>email:</td>
+        <td>
+            <input type="text" name="email" [(ngModel)]="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [formControl]="emailControl">
+        </td>
+    </tr>
+    <tr>
+        <td>kontaktTelefon:</td>
+        <td>
+            <input type="text" name="kontaktTelefon" [(ngModel)]="kontaktTelefon" pattern="[0][6][0-9]{8}" [formControl]="kontaktTelefonControl">
+        </td>        
+    </tr>
+    <input type="file" (change)="insertPicture($event)" class="input">
+    <tr><button type="submit" class="dugme">Update</button></tr>
+</table>
+</form>
+</div>
+{{message}}

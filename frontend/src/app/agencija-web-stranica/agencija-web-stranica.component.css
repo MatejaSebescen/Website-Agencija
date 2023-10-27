@@ -1,0 +1,41 @@
+
+.menuLink{
+    color: black;
+}
+.menuLink:hover{
+    color:red;
+}
+
+.tabelaNaziv{
+  color: darkblue;
+  font-size: 30px;
+}
+.tabelaOpis{
+  font-size: 20px;
+  font-style: italic;
+  overflow: auto;
+}
+.tabela{
+    text-align: left;
+    padding-left: 30px;
+}
+.komentari{
+  padding-top: 3px;
+  background: rgb(201, 230, 255);
+}
+.komentari td{
+  padding: 5px 5px 5px 10px;
+  font-size: 20px;
+}
+table{
+  background: rgb(201, 230, 255);
+}
+.nazad{
+  text-align: left;
+  text-decoration: none;
+  color: rgb(147, 1, 1);
+  font-size: 40px;
+}
+.nazad:hover{
+  color: rgb(18, 18, 255);
+}

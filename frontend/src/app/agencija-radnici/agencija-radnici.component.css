@@ -1,0 +1,36 @@
+.profilna{
+    width: 100%;
+    height: auto;
+    border-style: solid;
+}
+.pretraga{
+    font-size: 20px;
+}
+.input{
+    font-size: 17px;
+    padding: 4px;
+    margin: 4px;
+}.tabela{
+    text-align: center;
+    padding: 20px;
+    background-color: green;
+    font-size: 20px;
+}
+.dugme{
+    font-size: 15px;
+    padding: 4px;
+    margin: 4px;
+    border: 2px solid black;
+}
+.dugme:hover{
+    margin: 3px;
+    border: 3px solid black;
+}
+.tabela-update tr td{
+    font-size: 20px;
+}
+.input{
+    font-size: 17px;
+    padding: 4px;
+    margin: 4px;
+}

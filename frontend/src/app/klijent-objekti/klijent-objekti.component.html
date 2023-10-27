@@ -1,0 +1,52 @@
+<br><br><button routerLink="../dodavanje" class="dugme">Dodaj objekat</button><br><br>
+<table class="tabela">
+    <tr style="background-color: green;">
+        <th>tip<br>adresa</th>
+        <th>skica Objekta</th>
+    </tr>
+    <tr *ngFor="let n of allObjekti; let i = index" class="tabelaTR">
+        <td class="tabela">{{n.tip}}<br>{{n.adresa}}</td>
+        <canvas #canvas id="{{'canvas' + i}}" width="600" height="300" style="border-style: solid; background: white;" (mouseover)="load(n.skicaObjekta,n.brojProstorija,i)"></canvas>
+        <td class="tabela">Broj prostorija: {{n.brojProstorija}}<br>Kvadratura: {{n.kvadratura}}m²</td>
+        <td><button (click)="delete(n.adresa)" class="dugme">Delete</button></td>
+		<td><button (click)="update(n)" class="dugme">Update</button></td>
+    </tr>
+</table>
+<div *ngIf="updating"><p style="font-size: 20px;">
+    Updateuje se objekat na adresi {{currentlyUpdating.adresa}}:
+</p>
+    <table class="tabela-update">
+        <tr>
+            <td>tip:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="tip" [(ngModel)]="tip">
+            </td>
+        </tr>
+        <tr>
+            <td>adresa:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" name="adresa" [(ngModel)]="adresa">
+            </td>
+        </tr>
+        <tr>
+            <td>kvadratura:&nbsp;&nbsp;
+                <input type="text" name="kvadratura" [(ngModel)]="kvadratura">
+            </td>
+        </tr>
+        <tr>
+            <canvas #canvas id="{{'updateCanvas'}}" width="600" height="300" style="border-style: solid;" (mousedown)="mouseDown($event)" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp($event)"></canvas>
+            <hr/>
+            Sirina: &nbsp;&nbsp;&nbsp;<input type="text" name="width" [(ngModel)]="width"/><br/>
+            Visina: &nbsp;&nbsp;<input type="text" name="height" [(ngModel)]="height"/><br/>
+            &nbsp;&nbsp;<select name="singleSelect" [(ngModel)]="vrata" class="dugme">
+                <option value="levo">levo</option>
+                <option value="desno">desno</option>
+                <option value="gore">gore</option>
+                <option value="dole">dole</option>
+            </select><br>
+            Ubaci gotovu skicu: <input type="file" (change)="insertSkica($event)" class="input">
+            <button (click)="draw()" class="dugme">Draw</button><br>
+        </tr>
+        <tr><button (click)="updateFinal()" class="dugme">Update</button></tr>
+    </table>
+    {{message}}
+</div>
+<br/><br>

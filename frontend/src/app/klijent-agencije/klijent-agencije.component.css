@@ -1,0 +1,42 @@
+.profilna{
+    width: 100%;
+    height: auto;
+    border-style: solid;
+}
+.tabela{
+    text-align: center;
+    padding: 20px;
+}
+.tabelaTR{
+    text-align: center;
+    background-color: green;
+}
+.tabelaTR:hover{
+    background-color: yellow;
+    color: red;
+}
+.tabelaNaziv{
+    color: darkblue;
+    font-size: 30px;
+}
+.tabelaOpis{
+    font-size: 20px;
+    font-style: italic;
+    overflow: auto;
+}
+.buttons{
+  padding: 14px 16px;
+}
+.dugme{
+    font-size: 15px;
+    padding: 4px;
+    margin: 4px;
+    border: 2px solid black;
+}
+.dugme:hover{
+    margin: 3px;
+    border: 3px solid black;
+}
+.pretraga{
+    font-size: 20px;
+}

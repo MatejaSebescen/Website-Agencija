@@ -1,0 +1,43 @@
+
+<form name="forma" #form="ngForm" (ngSubmit)="userExists(form)">
+    <table class="tabela">
+        <tr>
+            <td>kontaktTelefon:</td>
+            <td>
+                <input type="text" name="kontaktTelefon" [(ngModel)]="kontaktTelefon" pattern="[0][6][0-9]{8}" [formControl]="kontaktTelefonControl">
+            </td>        
+        </tr>
+        <tr>
+            <td>email:</td>
+            <td>
+                <input type="text" name="email" [(ngModel)]="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [formControl]="emailControl">
+            </td>
+        </tr>
+        <tr>
+            <td>ime:</td>
+            <td>
+                <input type="text" name="ime" [(ngModel)]="ime" required>
+            </td>
+        </tr>
+        <tr>
+            <td>prezime:</td>
+            <td>
+                <input type="text" name="prezime" [(ngModel)]="prezime" required>
+            </td>        
+        </tr>
+        <tr>
+            <td>specijalizacija:</td>
+            <td>
+                <input type="text" name="specijalizacija" [(ngModel)]="specijalizacija" required>
+            </td>        
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit" class="dugme">Register</button>
+            </td>        
+        </tr>
+    </table>
+    </form>
+    {{message}}
+    {{messageTelefon}}<br/>
+    {{messageEmail}}<br/>

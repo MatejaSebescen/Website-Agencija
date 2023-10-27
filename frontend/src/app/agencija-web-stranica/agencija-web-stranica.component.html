@@ -1,0 +1,27 @@
+<div *ngIf="isKlijent">
+    <a class="menuLink" routerLink="../klijent/agencije" class="nazad">Nazad</a>
+    <hr>
+</div>
+<table>
+    <tr>
+        <td><img [src]="agencija.profilna" class="profilna" width="300" height="300"></td>
+        <td class="tabela">
+            <h3 class="tabelaNaziv">{{agencija.naziv}}</h3>
+            <p class="tabelaOpis">{{agencija.opis}}</p>
+        </td>
+    </tr>
+    <tr style="font-size: 40px;">Komentari:</tr><hr/>
+    <tr *ngFor="let n of komentariKlijent" class="komentari">
+        <div *ngIf="isKlijent">
+            <td><img [src]="n.klijent.profilna" class="klijentProfilna" width="150" height="150"></td>
+        </div>
+        <td style="font-size: 25px; color: rgb(166, 8, 34); text-align: center;">{{n.klijent.username}}</td>
+        <div *ngIf="isKlijent" class="komentari">
+            <td>Telefon: {{n.klijent.kontaktTelefon}}<br>{{n.klijent.email}}</td>
+        </div>
+        <td>
+            <div *ngFor="let i of n.ocena" style="float: left;">⭐</div><br>
+            Komentar: {{n.komment.text}}
+        </td>
+    </tr>
+</table>

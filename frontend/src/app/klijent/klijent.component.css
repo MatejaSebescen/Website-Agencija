@@ -1,0 +1,13 @@
+.menu{
+    background: rgb(158, 220, 143);
+}
+.menuLink{
+    color: rgb(200, 30, 30);
+    font-size: 25px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+.menuLink:hover{
+    color:blue;
+}

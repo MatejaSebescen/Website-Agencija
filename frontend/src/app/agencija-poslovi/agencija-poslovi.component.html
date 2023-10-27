@@ -1,0 +1,41 @@
+
+<table class="tabela">
+    <tr style="background-color: green;">
+        
+        <th>tip</th>
+        <th>adresa</th>
+        <th>skica Objekta</th>
+        <th>|Boja|</th>
+        <th>kvadratura</th>
+        <th>status</th>
+        <th>ime</th>
+        <th>prezime</th>
+    </tr>
+    <tr *ngFor="let n of allObjekti; let i = index" class="tabelaTR">
+            
+        <td class="tabela">{{n.tip}}</td>
+        <td class="tabela">{{n.adresa}}</td>
+        <td class="tabela"><canvas #canvas id="{{'canvas' + i}}" width="600" height="300" style="border-style: solid; background: white;" (mousedown)="mouseDown(n.skicaObjekta, n.brojProstorija, $event, i)" (mouseover)="load(n.skicaObjekta,n.brojProstorija,i)"></canvas></td>
+        <td class="tabela" *ngIf="canvasLoaded[i]">
+                Izaberi boju za bojenje:
+                    <select name="singleSelect" [(ngModel)]="chosenColor[i]" class="input">
+                      <option value="crvena">Crvena</option>
+                      <option value="zelena">Zelena</option>
+                    </select>
+        </td>
+        <td class="tabela" *ngIf="!canvasLoaded[i]" style="padding-left: 10px;padding-right: 10px;">
+        </td>
+        <td class="tabela">{{n.kvadratura}}</td>
+        <td class="tabela">{{allPoslovi[i].status}}</td>
+        <td class="tabela">{{allKlijenti[i].ime}}</td>
+        <td class="tabela">{{allKlijenti[i].prezime}}</td>
+        <td class="tabela">
+            <div *ngIf="allPoslovi[i].status === 'Ceka se odgovor'">
+                <input type="text" [(ngModel)]="cena[i]" name="cena"/>
+                <button (click)="poslatiPonudu(i)" class="dugme">Posalji ponudu</button>
+                <button (click)="odbiPosao(i)" class="dugme">Odbi posao</button>
+            </div>
+        </td>
+    </tr>
+</table>
+{{message}}

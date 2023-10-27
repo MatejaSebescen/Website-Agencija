@@ -1,0 +1,25 @@
+<table class="tabela">
+    <tr style="background-color: green;">
+        <th>ime</th>
+        <th>prezime</th>
+        <th>email</th>
+        <th>kontakt telefon</th>
+        <th>specijalizacija</th>
+    </tr>
+    <tr *ngFor="let n of allRadnik; let i = index" class="tabelaTR">
+        <td class="tabela">{{n.ime}}</td>
+        <td class="tabela">{{n.prezime}}</td>
+        <td class="tabela">{{n.email}}</td>
+        <td class="tabela">{{n.kontaktTelefon}}</td>
+        <td class="tabela">{{n.specijalizacija}}</td>
+    </tr>
+</table>
+<div *ngIf="korisnik.slobodnihMesta == 0">
+    Unesite broj dodatnih radnih mesta za zahtev:
+    <input type="text" [(ngModel)]="broj" name="broj"/>
+    <button (click)="posaljiZahtev()" class="dugme">Posalji zahtev</button>
+</div>
+<div *ngIf="korisnik.slobodnihMesta != 0">
+    <button routerLink="../registerRadnik" class="dugme">Registruj radnika</button>
+</div>
+{{message}}

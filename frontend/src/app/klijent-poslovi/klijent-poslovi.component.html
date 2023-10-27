@@ -1,0 +1,55 @@
+<br><button (click)="sortAllJobs()" class="dugme">Svi poslovi</button> |
+<button (click)="sortFinished()"    class="dugme">Zavrseni</button> |
+<button (click)="sortActive()"      class="dugme">Aktivni</button> |
+<button (click)="sortRequests()"    class="dugme">Zahtevi za saradnju</button><br><br>
+<table class="tabela">
+    <tr>
+        <th>Tip<br>Adresa</th>
+        <th>Skica objekta</th>
+        <th>Status</th>
+        <th>Opcija</th>
+    </tr>
+    <tr *ngFor="let n of allObjekti; let i = index" class="tabelaTR" [ngClass]="allPoslovi[i].status === 'Odbijen' ? 'tacno': ''">
+        <td>{{n.tip}}<br>{{n.adresa}}</td>
+        <canvas #canvas id="{{'canvas' + i}}" width="600" height="300" style="border-style: solid; background: white;" (mouseover)="load(n.skicaObjekta,n.brojProstorija,i)"></canvas>
+        <td>{{allPoslovi[i].status}}</td>  
+        <td>
+            <div *ngIf="allPoslovi[i].status === 'Zavrsen'">
+                <button (click)="plati(i)">Plati</button>
+            </div>
+            <div *ngIf="allPoslovi[i].status === 'Placen'">
+                <button (click)="komentarisi(i)">Ostavi komentar</button>
+            </div>
+            <div *ngIf="allPoslovi[i].status === 'Ponudjen'">
+                Ponuda: {{allPoslovi[i].nadoknada}}
+                <button (click)="prihvatiPonudu(i)">Prihvati</button>
+                <button (click)="odbiPonudu(i)">Odbi</button>
+            </div>
+        </td>
+    </tr>
+</table>
+<div *ngIf="isKomentarise">
+    Daje se komentar agenciji {{commentedAgencija}}:
+    <table>
+        <tr>
+            <td>ocena:</td>
+            <td>
+                <select name="singleSelect" [(ngModel)]="ocena">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+            </td>
+        </tr>
+        <tr>
+            <td>komentar:</td>
+            <td>
+                <input type="textarea" name="komentar" [(ngModel)]="komentar">
+            </td>
+        </tr>
+        <tr><button (click)="addComment()">Comment</button></tr>
+    </table>
+    {{message}}
+</div>
