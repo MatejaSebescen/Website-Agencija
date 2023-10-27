@@ -1,0 +1,10 @@
+<div>
+Saradnja sa {{agencija.naziv}}
+za objekat na adresi:
+<select name="singleSelect" [(ngModel)]="objekat">
+    <option *ngFor="let n of allObjekti; let i = index" value="{{i}}">{{n.adresa}}</option>
+</select><br><br>
+U periodu od: <input type="date" [(ngModel)]="datumOd"/> do: <input type="date" [(ngModel)]="datumDo"/><br><br>
+<button (click)="submit()" class="dugme">Postavi zahtev</button>
+{{message}}
+</div>

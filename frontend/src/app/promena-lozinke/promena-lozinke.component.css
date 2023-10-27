@@ -1,0 +1,16 @@
+.tabela tr td{
+    font-size: 20px;
+}
+.dugme{
+    font-size: 20px;
+    padding: 4px;
+    margin: 4px;
+    border: 1px solid black;
+}
+.dugme:hover{
+    margin: 3px;
+    border: 2px solid black;
+}
+.poruke{
+    font-size: 20px;
+}

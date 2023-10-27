@@ -1,0 +1,28 @@
+
+<form name="forma" #form="ngForm" (ngSubmit)="update(form)">
+    <table class="tabela">
+        <tr>
+            <td>stara lozinka:</td>
+            <td>
+                <input type="password" name="stara" [(ngModel)]="stara">
+            </td>
+        </tr>
+        <tr>
+            <td>nova lozinka:</td>
+            <td>
+                <input type="password" name="lozinka" [(ngModel)]="lozinka" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,12}$" [formControl]="lozinkaControl">
+            </td>
+        </tr>
+        <tr>
+            <td>Potvrda nove lozinke:</td>
+            <td>
+                <input type="password" name="potvrdaLozinke" [(ngModel)]="potvrdaLozinke" [pattern]="lozinka" required>
+            </td>
+        </tr>
+        <tr><button class="dugme" type="submit">Update</button></tr>
+    </table>
+    <p class="poruke">
+    {{message}}<br>
+    {{messageLozinka}}
+    </p>
+</form>

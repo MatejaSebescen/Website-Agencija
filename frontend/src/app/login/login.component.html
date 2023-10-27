@@ -1,0 +1,27 @@
+<table class="tabela">
+    <div ng-controller="ExampleController">
+    <select name="singleSelect" [(ngModel)]="isKlijent" class="input">
+      <option value="true">Klijent</option>
+      <option value="false">Agencija</option>
+    </select><br>
+  </div>
+    <tr>
+        <td>Username:</td>
+        <td>
+            <input type="text" name="username" [(ngModel)]="username">
+        </td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td>
+            <input type="password" name="password" [(ngModel)]="password"> 
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button (click)="login()" class="dugme">LogIn</button>
+        </td>
+    </tr>
+</table>
+<p style="font-size: 20px;">{{message}}<br>
+Click here to <a routerLink="/register">register.</a></p>

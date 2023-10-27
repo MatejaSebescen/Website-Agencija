@@ -1,0 +1,20 @@
+<div class="header, screen">
+    <a routerLink="pocetna" class="header-pocetna, header-link">Pocetna</a>
+    <div *ngIf="isPrijavljen" class="header-profil">
+        <div *ngIf="profil == 'agencija'; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock><a routerLink="agencija" class="header-profil, header-link">Profil</a></ng-template>
+    <ng-template #elseBlock>
+            <div *ngIf="profil == 'klijent'; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock><a routerLink="klijent" class="header-profil, header-link">Profil</a></ng-template>
+        <ng-template #elseBlock><a routerLink="admin" class="header-profil, header-link">Profil</a></ng-template>
+    </ng-template>
+    </div>
+</div>
+<hr/>
+<router-outlet></router-outlet>
+<hr/>
+<div class="footer, screen">
+    <div *ngIf="!isPrijavljen; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock><a routerLink="login" class="header-login, header-link">Prijavite se</a></ng-template>
+<ng-template #elseBlock><a routerLink="" (click)="logout()" class="header-login, header-link">Odjavi se</a></ng-template>
+</div>

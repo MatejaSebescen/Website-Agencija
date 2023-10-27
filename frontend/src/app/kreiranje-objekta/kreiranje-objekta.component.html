@@ -1,0 +1,16 @@
+<canvas #canvas name="canvas" width="600" height="300" style="border-style: solid;" (mousedown)="mouseDown($event)" (mousemove)="onMouseMove($event)" (mouseup)="onMouseUp($event)"></canvas>
+<hr/><div class="polje">
+Sirina: &nbsp;<input type="text" name="width" [(ngModel)]="width"/><br/>
+Visina: <input type="text" name="height" [(ngModel)]="height"/><br/>
+Vrata: <select name="singleSelect" [(ngModel)]="vrata" class="input">
+    <option value="levo">Levo</option>
+    <option value="desno">Desno</option>
+    <option value="gore">Gore</option>
+    <option value="dole">Dole</option>
+  </select><br>
+<button (click)="draw()" class="dugme">Draw</button><br/>
+</div><br><p class="tabela">
+(opcionalno) Ucitaj JSON fajl sa skicom: &nbsp;<input type="file" (change)="insertSkica($event)" class="input"><br>
+<button (click)="submit()" class="dugme">Dodaj objekat</button>
+{{message}}
+</p>

@@ -1,0 +1,24 @@
+<div class="pretraga">
+Naziv:  &nbsp;&nbsp;<input type="text" name="search" [(ngModel)]="searchParamNaziv"><br/><br>
+Adresa: <input type="text" name="search" [(ngModel)]="searchParamAdresa">
+</div>
+<br/>
+<div class="buttons">
+<button class="dugme" (click)="search()">Pretrazi</button>
+<button class="dugme" (click)="sortByName()">Sortiraj po imenu</button>
+<button class="dugme" (click)="sortByAddress()">Sortiraj po adresi</button>
+</div>
+<table style="background-color: green;">
+    <tr style="background-color: green;">
+        <th>PROFILNA SLIKA</th>
+        <th>NAZIV<br>OPIS</th>
+    </tr>
+    <tr *ngFor="let n of allAgencija" class="tabelaTR" (click)="navigate(n.username)">
+        <td><img [src]="n.profilna" class="profilna"></td>
+        <td class="tabela">
+            <h3 class="tabelaNaziv">{{n.naziv}}</h3>
+            <p class="tabelaOpis">{{n.opis}}</p>
+        </td>
+    </tr>
+</table>
+{{message}}
