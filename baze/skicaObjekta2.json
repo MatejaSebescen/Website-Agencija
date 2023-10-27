@@ -1,0 +1,7 @@
+[{
+  "brojProstorija": 2,
+  "skicaObjekta": [
+    {"x":45, "y":55, "w":45,"h":65, "strana":"levo", "boja": "white"},
+    {"x":90, "y":55, "w":43,"h":98, "strana":"desno", "boja": "white"}
+  ]
+}]

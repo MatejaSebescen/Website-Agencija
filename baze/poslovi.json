@@ -1,0 +1,26 @@
+[{
+  "agencija": "Trik",
+  "klijent": "Eva",
+  "adresa": "Terazije 67",
+  "datumOd": {
+    "$date": "2023-07-11T00:00:00.000Z"
+  },
+  "datumDo": {
+    "$date": "2023-07-20T00:00:00.000Z"
+  },
+  "status": "Ceka se odgovor",
+  "nadoknada": 0
+},
+{
+  "agencija": "dule",
+  "klijent": "Eva",
+  "adresa": "beogradska 12",
+  "datumOd": {
+    "$date": "2023-07-13T00:00:00.000Z"
+  },
+  "datumDo": {
+    "$date": "2023-07-25T00:00:00.000Z"
+  },
+  "status": "Aktivan",
+  "nadoknada": 400
+}]

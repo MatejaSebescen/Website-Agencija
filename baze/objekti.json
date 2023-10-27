@@ -1,0 +1,16 @@
+[{
+  "klijent": "Eva",
+  "tip": "stan",
+  "adresa": "Terazije 67",
+  "brojProstorija": 3,
+  "kvadratura": 34,
+  "skicaObjekta": "[{\"x\":218,\"y\":152.5,\"w\":32,\"h\":54,\"strana\":\"levo\",\"boja\":\"white\"},{\"x\":252,\"y\":152.5,\"w\":32,\"h\":54,\"strana\":\"desno\",\"boja\":\"white\"},{\"x\":218,\"y\":95.5,\"w\":67,\"h\":54,\"strana\":\"gore\",\"boja\":\"white\"}]"
+},
+{
+  "klijent": "Eva",
+  "tip": "stan",
+  "adresa": "beogradska 12",
+  "brojProstorija": 2,
+  "kvadratura": 54,
+  "skicaObjekta": "[{\"x\":45,\"y\":55,\"w\":45,\"h\":65,\"strana\":\"levo\",\"boja\":\"white\"},{\"x\":90,\"y\":55,\"w\":43,\"h\":98,\"strana\":\"desno\",\"boja\":\"white\"},{\"x\":0,\"y\":0,\"w\":0,\"h\":0,\"strana\":\"levo\",\"boja\":\"white\"}]"
+}]
