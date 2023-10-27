@@ -1,0 +1,20 @@
+<br><button (click)="sortAllJobs()" class="dugme">Svi poslovi</button> |
+<button (click)="sortFinished()"    class="dugme">Zavrseni</button> |
+<button (click)="sortActive()"      class="dugme">Aktivni</button> |
+<button (click)="sortRequests()"    class="dugme">Zahtevi za saradnju</button><br><br>
+<table class="tabela">
+    <tr>
+        <th>Klijent</th>
+        <th>Agencija</th>
+        <th>Tip<br>Adresa</th>
+        <th>Skica objekta</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor="let n of allObjekti; let i = index" class="tabelaTR" [ngClass]="allPoslovi[i].status === 'Odbijen' ? 'tacno': ''">
+        <td>{{n.klijent}}</td>
+        <td>{{allPoslovi[i].agencija}}</td>
+        <td>{{n.tip}}<br>{{n.adresa}}</td>
+        <canvas #canvas id="{{'canvas' + i}}" width="600" height="300" style="border-style: solid; background: white;" (mouseover)="load(n.skicaObjekta,n.brojProstorija,i)"></canvas>
+        <td>{{allPoslovi[i].status}}</td>
+    </tr>
+</table>

@@ -1,0 +1,82 @@
+<h2>Register Agencija</h2>
+<form name="forma" #form="ngForm" (ngSubmit)="userExists(form)">
+<table class="tabela">
+    <tr>
+        <td>username:</td>
+        <td>
+            <input type="text" name="username" [(ngModel)]="username" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>lozinka:</td>
+        <td>
+            <input type="password" name="lozinka" [(ngModel)]="lozinka" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,12}$" [formControl]="lozinkaControl">
+        </td>        
+    </tr>
+    <tr>
+        <td>Potvrditi lozinku:</td>
+        <td>
+            <input type="password" name="potvrdaLozinke" [(ngModel)]="potvrdaLozinke" [pattern]="lozinka" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>kontaktTelefon:</td>
+        <td>
+            <input type="text" name="kontaktTelefon" [(ngModel)]="kontaktTelefon" pattern="[0][6][0-9]{8}" [formControl]="kontaktTelefonControl">
+        </td>        
+    </tr>
+    <tr>
+        <td>email:</td>
+        <td>
+            <input type="text" name="email" [(ngModel)]="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [formControl]="emailControl">
+        </td>
+    </tr>
+    <tr>
+        <td>naziv:</td>
+        <td>
+            <input type="text" name="naziv" [(ngModel)]="naziv" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>drzava:</td>
+        <td>
+            <input type="text" name="drzava" [(ngModel)]="drzava" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>grad:</td>
+        <td>
+            <input type="text" name="grad" [(ngModel)]="grad" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>ulica:</td>
+        <td>
+            <input type="text" name="ulica" [(ngModel)]="ulica" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>Maticni Broj:</td>
+        <td>
+            <input type="text" name="maticniBroj" [(ngModel)]="maticniBroj" required>
+        </td>        
+    </tr>
+    <tr>
+        <td>opis:</td>
+        <td>
+            <input type="textArea" name="opis" [(ngModel)]="opis" required>
+        </td>        
+    </tr>
+<input type="file" (change)="insertPicture($event)" class="input">
+    <tr>
+        
+        <td colspan="2">
+            <button type="submit" class="dugme">Register</button>
+        </td>        
+    </tr>
+</table>
+</form>
+{{message}}<br/>
+{{messageLozinka}}<br/>
+{{messageTelefon}}<br/>
+{{messageEmail}}<br/>

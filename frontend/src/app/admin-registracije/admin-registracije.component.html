@@ -1,0 +1,17 @@
+<table class="tabela">
+    <tr style="background-color: green;">
+        <th>profilna slika</th>
+        <th>username</th>
+        <th>ime</th>
+        <th>prezime</th>
+        <th>email</th>
+    </tr>
+    <tr *ngFor="let n of allZahtevi; let i = index" class="tabelaTR">
+        <td><img [src]="n.profilna" class="profilna"></td>
+        <td class="tabela">{{n.username}}</td>
+        <td class="tabela">{{n.email}}</td>
+		<td><button (click)="prihvati(i)" class="dugme">Prihvati</button></td>
+        <td><button (click)="odbi(n.username, n.email)" class="dugme">Odbi</button></td>
+    </tr>
+</table>
+{{message}}

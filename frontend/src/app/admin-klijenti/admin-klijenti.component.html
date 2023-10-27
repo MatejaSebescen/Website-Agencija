@@ -1,0 +1,55 @@
+<button routerLink="../registerKlijent" class="dugme">Dodaj novog klijenta</button><br><br>
+<p style="font-size: 20px;">
+Username:<input type="text" name="search" [(ngModel)]="searchParamUsername"></p>
+<button (click)="search()"class="dugme">Pretrazi</button>
+<table class="tabela">
+    <tr style="background-color: green;">
+        <th>profilna slika</th>
+        <th>username</th>
+        <th>ime</th>
+        <th>prezime</th>
+        <th>email</th>
+    </tr>
+    <tr *ngFor="let n of allKlijenti; let i = index" class="tabelaTR">
+        <td><img [src]="n.profilna" class="profilna"></td>
+        <td class="tabela">{{n.username}}</td>
+        <td class="tabela">{{n.ime}}</td>
+        <td class="tabela">{{n.prezime}}</td>
+        <td class="tabela">{{n.email}}</td>
+		<td><button (click)="updatingF(n, i)" class="dugme">Update</button></td>
+        <td><button (click)="delete(n.username)" class="dugme">Delete</button></td>
+    </tr>
+</table>
+<div *ngIf="updating">
+<form name="forma" #form="ngForm" (ngSubmit)="update(form)">
+<table class="tabela-update">
+    <tr>
+        <td>ime:</td>
+        <td>
+            <input type="text" name="ime" [(ngModel)]="ime">
+        </td>        
+    </tr>
+    <tr>
+        <td>prezime:</td>
+        <td>
+            <input type="text" name="prezime" [(ngModel)]="prezime">
+        </td>        
+    </tr>
+    <tr>
+        <td>email:</td>
+        <td>
+            <input type="text" name="email" [(ngModel)]="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [formControl]="emailControl">
+        </td>
+    </tr>
+    <tr>
+        <td>kontaktTelefon:</td>
+        <td>
+            <input type="text" name="kontaktTelefon" [(ngModel)]="kontaktTelefon" pattern="[0][6][0-9]{8}" [formControl]="kontaktTelefonControl">
+        </td>        
+    </tr>
+    <input type="file" (change)="insertPicture($event)" class="input">
+    <tr><button type="submit" class="dugme">Update</button></tr>
+</table>
+</form>
+</div>
+{{message}}

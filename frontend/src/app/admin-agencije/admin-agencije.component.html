@@ -1,0 +1,75 @@
+
+<button routerLink="../registerAgencija" class="dugme">Dodaj novu agenciju</button><br><br>
+<div class="pretraga">
+    Naziv:  &nbsp;&nbsp;<input type="text" name="search" [(ngModel)]="searchParamNaziv"><br/><br>
+    Adresa: <input type="text" name="search" [(ngModel)]="searchParamAdresa">
+</div>
+<br/>
+<div class="buttons">
+<button class="dugme" (click)="search()">Pretrazi</button>
+<button class="dugme" (click)="sortByName()">Sortiraj po imenu</button>
+<button class="dugme" (click)="sortByAddress()">Sortiraj po adresi</button>
+</div>
+<table style="background-color: green;">
+    <tr style="background-color: green;">
+        <th>PROFILNA SLIKA</th>
+        <th>NAZIV<br>OPIS</th>
+    </tr>
+    <tr *ngFor="let n of allAgencija; let i =index" class="tabelaTR">
+        <td (click)="navigate(n.username)"><img [src]="n.profilna" class="profilna"></td>
+        <td class="tabela" (click)="navigate(n.username)">
+            <h3 class="tabelaNaziv">{{n.naziv}}</h3>
+            <p class="tabelaOpis">{{n.opis}}</p>
+        </td>
+		<td><button (click)="updatingF(n, i)" class="dugme">Update</button></td>
+        <td><button (click)="delete(n.username)" class="dugme">Delete</button></td>
+    </tr>
+</table>
+<div *ngIf="updating"><p style="font-size: 20px;">
+    Updateuje se agencija: {{currentlyUpdating.naziv}}:
+</p>
+<form name="forma" #form="ngForm" (ngSubmit)="update(form)">
+    <table class="tabela-update">
+        <tr>
+            <td>naziv:</td>
+            <td>
+                <input type="text" name="naziv" [(ngModel)]="naziv">
+            </td>        
+        </tr>
+        <tr>
+            <td>grad:</td>
+            <td>
+                <input type="text" name="grad" [(ngModel)]="grad">
+            </td>        
+        </tr>
+        <tr>
+            <td>ulica:</td>
+            <td>
+                <input type="text" name="ulica" [(ngModel)]="ulica">
+            </td>        
+        </tr>
+        <tr>
+            <td>opis:</td>
+            <td>
+                <input type="textArea" name="opis" [(ngModel)]="opis">
+            </td>        
+        </tr>
+        <tr>
+            <td>email:</td>
+            <td>
+                <input type="text" name="email" [(ngModel)]="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" [formControl]="emailControl">
+            </td>
+        </tr>
+        <tr>
+            <td>kontaktTelefon:</td>
+            <td>
+                <input type="text" name="kontaktTelefon" [(ngModel)]="kontaktTelefon" pattern="[0][6][0-9]{8}" [formControl]="kontaktTelefonControl">
+            </td>        
+        </tr>
+        <input type="file" (change)="insertPicture($event)" class="input">
+        <tr><button type="submit" class="dugme">Update</button></tr>
+    </table>
+    </form>
+    {{message}}
+</div>
+<br/>

@@ -1,0 +1,17 @@
+<table class="tabela">
+    <tr style="background-color: green;">
+        <th>Agencija</th>
+        <th>Broj</th>
+    </tr>
+    <tr *ngFor="let n of allZahteviRadnika; let i = index" class="tabelaTR">
+        <td class="tabela">{{n.agencija}}</td>
+        <td class="tabela">{{n.broj}}</td>
+        <td class="tabela">
+            <button (click)="odobri(i)" class="dugme">Odobri</button>
+        </td>
+        <td class="tabela">
+            <button (click)="odbi(i)" class="dugme">Odbi</button>
+        </td>
+    </tr>
+</table>
+{{message}}
